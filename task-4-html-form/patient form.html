@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <link rel="stylesheet" href="C:\Users\madup\Repos\appfoster-ase-training\task-4-html-form\style1.css">
+</head>
+<body> 
+    <div class="content">
+        <form action="" target="_blank" onsubmit="return confirm('Are you sure to confirm')">
+            <fieldset>
+                <legend>Primary Details</legend>
+                <div class="container">
+                    <div class="c1">
+                        <label for="">Medicare No</label><br><br>
+                        <label for="title">Title</label><br><br>
+                        <br>
+                        <label for="">Name</label><br><br><br>
+                        <label for="">Pref.Name</label><br><br>
+                        <label for="">DOB</label><br><br>
+                        <label for="" name="gender">Sex</label><br><br>
+                        <label for="">Famly Name</label><br>
+                    </div>
+                    <div class="c2">
+                        <input type="text" placeholder="Enter Medicare_No">
+                        <label for="">/ Valid Till</label><input type="date"><br><br>
+                        <select name="title" id="title">
+                            <option value="" id="title">None</option>
+                            <option value="" id="title">Mr.</option>
+                            <option value="" id="title">Ms</option>
+                            <option value="" id="title">Mrs.</option>
+                        </select><br><br>
+                        <label for="" >Firstname,Middlename,Lastname</label><br>
+                        <input type="text" placeholder="Enter name"><br><br>
+                        <input type="text" placeholder="Enter Preferred Name"><br><br>
+                        <input type="date"><br><br>
+                        <select id="">
+                            <option value="" id="title">Gender</option>
+                            <option value="" id="title">Male</option>
+                            <option value="" id="title">Female</option>
+                        </select><br><br>
+                        <input type="text" placeholder="Enter family name"><br>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Contact Details</legend>
+                <div class="container">
+                    <div class="c1">
+                        <br>
+                        <label for="">Phone</label><br><br><br><br>
+                        <label for="">Emerg.No</label><br><br>
+                        <label for="">Email</label><br>
+                    </div>
+                    <div class="c2">
+                        <div class="container">
+                            <div class="c1">
+                                <label for="">Home</label><br>
+                                <input type="text" placeholder="Enter home number"><br>
+                                <label for="">Mobile</label>
+                                <input type="text" placeholder="Enter mobile number">
+                            </div>
+                            <div class="c2">
+                                <label for="">Work</label><br>
+                                <input type="text" placeholder="Enter work number">
+                                <label for="">Fax</label>
+                                <input type="text" placeholder="Enter Fax number"><br><br>
+                            </div>
+                        </div>
+                        <input type="number"><br><br>
+                        <input type="email" placeholder="Enter email"><br>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Address Details</legend>
+                <fieldset>
+                    <legend>Residential Address</legend>
+                    <div class="container">
+                        <div class="c1">
+                            <label for="">Address 1</label><br><br>
+                            <label for="">Address 2</label><br><br>
+                            <label for="">Suburb</label><br><br>
+                            <label for="">State</label><br><br>
+                            <label for="">Postal Code</label>
+                        </div>
+                        <div class="c2">
+                            <input type="text" placeholder="Enter Address1"><br><br>
+                            <input type="text" placeholder="Enter Address2"><br><br>
+                            <input type="text"> <br><br>
+                            <select name="state" id="">
+                                <option >Select State</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CT">Chhattisgarh</option>
+                                <option value="GA">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="GA">Goa</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Odisha</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TG">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UT">Uttarakhand</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="WB">West Bengal</option>
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="DN">Dadra and Nagar Haveli</option>
+                                <option value="DD">Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="PY">Puducherry</option>             
+                            </select><br><br>
+                            <input type="text" size="6">
+                            <label for="">Country</label>
+                            <input type="text" placeholder="Country Name">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Single Address</legend>
+                    <label for="">Are Mailing Address and Residential Address same?</label><input type="checkbox"><label for="">Yes</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Mailing Address</legend>
+                    <div class="container">
+                        <div class="c1">
+                            <label for="">Address 1</label><br><br>
+                            <label for="">Address 2</label><br><br>
+                            <label for="">Suburb</label><br><br>
+                            <label for="">State</label><br><br>
+                            <label for="">Postal Code</label>
+                        </div>
+                        <div class="c2">
+                            <input type="text" placeholder="Enter Address1"><br><br>
+                            <input type="text" placeholder="Enter Address1"><br><br>
+                            <input type="text"> <br><br>
+                            <select name="state" id="">
+                                <option >Select State</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CT">Chhattisgarh</option>
+                                <option value="GA">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="GA">Goa</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Odisha</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TG">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UT">Uttarakhand</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="WB">West Bengal</option>
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="DN">Dadra and Nagar Haveli</option>
+                                <option value="DD">Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="PY">Puducherry</option>
+                            </select><br><br>
+                            <input type="text" size="6">
+                            <label for="">Country</label>
+                            <input type="text" placeholder="Country Name">
+                        </div>
+                </fieldset>
+            </fieldset><br>
+        </form>
+        <fieldset>
+            <div class="container" style="background-color: aquamarine;">
+                <div class="c3">
+                    <label for="">IHI Number</label><br><br>
+                    <label for="">Number Status</label><br><br>
+                    <label for="">Record Status</label><br><br>
+                    <label for="">Last Updated</label><br><br><br>
+                </div>
+                <div class="c2">
+                    <label for="">80036</label><input type="text" placeholder="Enter IHI Number"><br><br>
+                    <input type="text" placeholder="Enter number_status"><br><br>
+                    <input type="text" placeholder="Enter record_status"><br><br>
+                    <input type="text" placeholder="Enter last_update"><br><br>
+                </div>
+            </div><br><br>
+            <div class="c3">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </fieldset>
+        
+    </div>
+        
+</body>
+</html>
