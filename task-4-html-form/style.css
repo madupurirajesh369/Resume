@@ -1,0 +1,21 @@
+.c1{
+    width: fit-content;
+    background-color: rgb(138, 215, 190);
+    margin: auto;
+    width: 37%;
+}
+.c2{
+    width: fit-content;
+    background-color: rgb(138, 215, 190);
+    margin: auto;
+    width: 38%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.c3{
+    width: fit-content;
+    padding-left: 20%;
+    padding-top: 5%;
+    padding-bottom: 10px;
+}

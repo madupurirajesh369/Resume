@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <form action="">
+            <fieldset class="c1">
+                <legend>Primary Details</legend>
+                <table>
+                    <tr>
+                        <td>Medicare No</td>
+                        <td><input type="text" placeholder="Medicare_No">/Valid Till <input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td><select name="title" id="title">
+                            <option value="" id="title">None</option>
+                            <option value="" id="title">Mr.</option>
+                            <option value="" id="title">Ms</option>
+                            <option value="" id="title">Mrs.</option>
+                        </select></td>
+                    </tr> 
+                    <tr>
+                        <td></td>
+                        <td>Firstname,Middlename,Lastname</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><input type="text" placeholder="Enter your name"></td>
+                    </tr>
+                    <tr>
+                        <td>Pref.Name</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>DOB</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>Sex</td>
+                        <td><input type="radio" id="" name="gender" value="">
+                            <label for="gender">Male</label>
+                            <input type="radio" id="" name="gender" value="">
+                            <label for="gender">Female</label></td>
+                    </tr>
+                    <tr>
+                        <td>Family Name</td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="c1">
+                <legend>Contact Details</legend>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Home</th>
+                        <th>Work</th>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Mobile</th>
+                        <th>Fax</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>Next of Kin</th>
+                        <th>Next of Kin Ph:</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Emerg.No</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset class="c1">
+                <legend>Address Details</legend>
+                <fieldset>
+                    <legend>Residential Address</legend>
+                    <table>
+                        <tr>
+                            <td>Address1</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Address2</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <td>Suburb</td>
+                        <td><input type="text">
+                            <label for="state">State</label>
+                            <select name="state" id="">
+                                <option >Select State</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CT">Chhattisgarh</option>
+                                <option value="GA">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="GA">Goa</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Odisha</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TG">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UT">Uttarakhand</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="WB">West Bengal</option>
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="DN">Dadra and Nagar Haveli</option>
+                                <option value="DD">Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="PY">Puducherry</option>             
+                            </select>
+                        </td>
+                        <tr>
+                            <td>Postal Code</td>
+                            <td>
+                                <input type="text"><label for="">Country</label><input type="text">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Single Address</legend>
+                    <label for="">Are Mailing Address and Residential Address same?</label><input type="checkbox"><label for="">Yes</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Mailing Address</legend>
+                    <table>
+                        <tr>
+                            <td>Address1</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Address2</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <td>Suburb</td>
+                        <td><input type="text">
+                            <label for="state">State</label>
+                            <select name="state" id="">
+                                <option >Select State</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CT">Chhattisgarh</option>
+                                <option value="GA">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="GA">Goa</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ML">Meghalaya</option>
+                                <option value="MZ">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Odisha</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TG">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UT">Uttarakhand</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="WB">West Bengal</option>
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="DN">Dadra and Nagar Haveli</option>
+                                <option value="DD">Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="PY">Puducherry</option>             
+                            </select>
+                        </td>
+                        <tr>
+                            <td>Postal Code</td>
+                            <td>
+                                <input type="text"><label for="">Country</label><input type="text">
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </fieldset>
+            <div class="c2">
+                <table>
+                    <tr>
+                        <td>IHI Number</td>
+                        <td>80036 <input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Number Status</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Number Status</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Number Status</td>
+                        <td><input type="text"></td>
+                    </tr>
+                </table>
+                <div class="c3">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>    
+</body>
+</html>
