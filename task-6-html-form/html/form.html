@@ -8,13 +8,13 @@
 </head>
 <body>
     <div>
-        <form action="">
+        <form action="" target="_blank" onsubmit="return confirm('Are you sure to confirm')">
             <fieldset class="c1">
                 <legend>Primary Details</legend>
                 <table>
                     <tr>
                         <td>Medicare No</td>
-                        <td><input type="text" placeholder="Medicare_No">/Valid Till <input type="date"></td>
+                        <td><input type="text" placeholder="Medicare_No" required>/Valid Till <input type="date"></td>
                     </tr>
                     <tr>
                         <td>Title</td>
@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td>Name</td>
-                        <td><input type="text" placeholder="Enter your name"></td>
+                        <td><input type="text" placeholder="Enter your name" required></td>
                     </tr>
                     <tr>
                         <td>Pref.Name</td>
@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td>Family Name</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="Enter Family_name" required></td>
                     </tr>
                 </table>
             </fieldset>
@@ -89,11 +89,11 @@
                     </tr>
                     <tr>
                         <td>Emerg.No</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="Enter your Emerg_no"></td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input type="email"></td>
+                        <td><input type="email" placeholder="Enter your email" required></td>
                     </tr>
                 </table>
             </fieldset>
@@ -104,11 +104,11 @@
                     <table>
                         <tr>
                             <td>Address1</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" placeholder="Enter Address1"></td>
                         </tr>
                         <tr>
                             <td>Address2</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" placeholder="Enter Address2"></td>
                         </tr>
                         <td>Suburb</td>
                         <td><input type="text">
@@ -156,7 +156,7 @@
                         <tr>
                             <td>Postal Code</td>
                             <td>
-                                <input type="text"><label for="">Country</label><input type="text">
+                                <input type="text" placeholder="Enter postal_code"><label for="">Country</label><input type="text" placeholder="Enter Country_name">
                             </td>
                         </tr>
                     </table>
@@ -170,11 +170,11 @@
                     <table>
                         <tr>
                             <td>Address1</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" placeholder="Enter Address1"></td>
                         </tr>
                         <tr>
                             <td>Address2</td>
-                            <td><input type="text"></td>
+                            <td><input type="text" placeholder="Enter Address2"></td>
                         </tr>
                         <td>Suburb</td>
                         <td><input type="text">
@@ -222,7 +222,7 @@
                         <tr>
                             <td>Postal Code</td>
                             <td>
-                                <input type="text"><label for="">Country</label><input type="text">
+                                <input type="text" placeholder="Enter postal_code"><label for="">Country</label><input type="text" placeholder="Enter Country_name">
                             </td>
                         </tr>
                     </table>
@@ -232,19 +232,19 @@
                 <table>
                     <tr>
                         <td>IHI Number</td>
-                        <td>80036 <input type="text"></td>
+                        <td>80036 <input type="text" placeholder="Enter IHI_Number" required></td>
                     </tr>
                     <tr>
                         <td>Number Status</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="Enter Number_status" required></td>
                     </tr>
                     <tr>
-                        <td>Number Status</td>
-                        <td><input type="text"></td>
+                        <td>Record Status</td>
+                        <td><input type="text" placeholder="Enter Record_status" required></td>
                     </tr>
                     <tr>
-                        <td>Number Status</td>
-                        <td><input type="text"></td>
+                        <td>Last Updated</td>
+                        <td><input type="text" placeholder="Enter last_update" required></td>
                     </tr>
                 </table>
                 <div class="c3">
