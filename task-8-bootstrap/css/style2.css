@@ -35,7 +35,11 @@
     display: inline-block;
     transform: rotate(90deg);
 }
-
+.vertical-slash {
+    border-left: 2px solid #797575;
+    height: 20px;
+    margin-right: 8px;
+}
 
 
 #year{
