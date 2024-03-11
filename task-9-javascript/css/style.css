@@ -7,11 +7,13 @@ body {
     margin: auto;
     background-color: rgb(216, 216, 216);
     padding: 10px;
+    margin-top: 5%;
 }
 .input {
     padding: 10px;
     width: 90%;
     border: 1px solid rgb(244, 239, 239);
+    background-color: white;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -30,15 +32,18 @@ body {
     cursor: pointer;
 }
 .split {
-    display: inline-block;
+    display: flex;
     background-color: #007bff;
     color: #fff;
-    padding: 10px;
-    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    margin:0px auto;
+    
 }
 #result {
     display: flex;
-    width: 100%;
+    width: 92%;
     justify-content: space-between;
-    
+    margin-top: 10px;
+    margin-left: 30px;
 }
