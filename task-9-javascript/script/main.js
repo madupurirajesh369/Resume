@@ -18,14 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
         var splitAmount = Math.floor(number / splits);
         var remainder = number % splits;
 
+        // Array of colors for split boxes
         var colors = ['#FF5733', '#C70039', '#900C3F', '#581845', '#FF5733', '#C70039', '#900C3F', '#581845', '#FF5733', '#C70039'];
 
         for (var i = 0; i < splits; i++) {
             var splitValue = splitAmount + (i < remainder ? 1 : 0);
             var newDiv = document.createElement('div');
             newDiv.classList.add('split');
-            var boxWidth = (splitValue / number) * 100; 
-            newDiv.style.flex = '0 0 ' + boxWidth + '%'; 
+            var boxWidth = (splitValue / number) * 100; // Calculate box width as a percentage of the total number
+            newDiv.style.flex = '0 0 ' + boxWidth + '%'; // Set width for each box
             newDiv.textContent = splitValue;
             newDiv.style.backgroundColor = colors[i % colors.length]; // Assign color from the array
             resultDiv.appendChild(newDiv);
