@@ -22,7 +22,8 @@ async function populateUserList(){
       row.innerHTML = `
         <td>${user.name}</td>
         <td>
-          <button type="button" class="btn btn-primary view-more" data-user-id="${user.id}">View More
+          <button type="button" class="btn btn-primary view-more" data-user-id="${user.id}">
+          <i class="far fa-eye"></i>
           </button>
           </button>
         </td>
