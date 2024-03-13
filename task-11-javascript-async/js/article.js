@@ -34,6 +34,7 @@ async function populateUserList(){
     viewMoreButtons.forEach(button =>{
       button.addEventListener('click', function(){
         const userId = this.getAttribute('data-user-id');
+        console.log(userId)
         displayUserInfo(userId);
       });
     });
@@ -63,30 +64,36 @@ async function displayUserInfo(userId){
     console.log('User data:', user);
     const userInfoModal = $('#userInfoModal');
     const userInfo = document.getElementById('user-info');
-    userInfo.innerHTML = `
-      <table class="table">
-        <tr>
-          <th>ID</th>
-          <td>${user.id}</td>
-        </tr>
-        <tr>
-          <th>Name</th>
-          <td>${user.name}</td>
-        </tr>
-        <tr>
-          <th>Email</th>
-          <td>${user.email}</td>
-        </tr>
-        <tr>
-          <th>Gender</th>
-          <td>${user.gender}</td>
-        </tr>
-        <tr>
-          <th>Projects</th>
-          <td>${user.projects}</td>
-        </tr>
-      </table>
-    `;
+    console.log(userId);
+    user.forEach(user_id => {
+      console.log(userId, user_id.id)
+      if(user_id.id == userId) {
+          userInfo.innerHTML = `
+          <table class="table">
+          <tr>
+              <th>ID</th>
+              <td>${user_id.id}</td>
+          </tr>
+          <tr>
+              <th>Name</th>
+              <td>${user_id.name}</td>
+          </tr>
+          <tr>
+              <th>Email</th>
+              <td>${user_id.email}</td>
+          </tr>
+          <tr>
+              <th>Gender</th>
+              <td>${user_id.gender}</td>
+          </tr>
+          <tr>
+              <th>Projects</th>
+              <td>${user_id.projects}</td>
+          </tr>
+          </table>
+      `;
+      }
+    })
     userInfoModal.modal('show');
   }catch (error){
     console.error('Error fetching user info:', error);
