@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700&family=Montserrat:ital,wght@0,300;0,700;1,500&display=swap');
+body{
+    background-color: #e3e9f8;
+}
+.designing-bootstrap{
+    background-color: #b2c4e9;
+}
+
+:root{
+
+  --big-font-size: 2rem;
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .70rem;
+
+  --font-medium:500;
+  --font-semi-bold:600;
+
+--mb-0-25: .25rem;
+--mb-0-5: .5rem;
+--mb-0-75: .75rem;
+--mb-1: 1rem;
+--mb-1-5: 1.5rem;
+--mb-2: 2rem;
+--mb-2-5: 2.5rem;
+--mb-3: 3rem;
+}
+
+.Util-mg-top-1{
+	margin-top: var(--mb-1);
+}
+.Util-mg-left-0-1{
+	margin-left: var(--mb-1);
+}
+.Util-mg-left-0-5{
+	margin-left: var(--mb-0-5);
+}
+.Util-mg-top-1{
+	margin-top: var(--mb-1);
+}
+.Util-mg-top-1-5{
+	margin-top: var(--mb-1-5);
+}
+.Util-mg-top-2{
+	margin-top: var(--mb-2);
+}
+.Util-mg-top-2-5{
+	margin-top: var(--mb-2-5);
+}
+.Util-mg-top-3{
+	margin-top: var(--mb-3);
+}
+.Util-mg-bottom-0-5{
+	margin-bottom: var(--mb-0-5);
+}
+.Util-mg-bottom-1{
+	margin-bottom: var(--mb-1);
+}
+.Util-badge{
+    padding:4px 7px;
+    text-align: center;
+    font-size:0.6rem;
+    font-weight: bold;
+}
+.Util-color-grey{
+    color:#737c7f;
+}
+.Util-color-1{
+    background:#FEE4CB;
+}
+.button-color-1{
+    background-color:#f3d4b3;
+    color:#a07b56;
+}
+.Util-color-2{
+    background:#E9E7FD;
+}
+.button-color-2{
+    background:#dbd9f0;
+    color:#8e85ee;
+}
+.Util-color-3{
+    background:#DBF6FD;
+}
+.Util-color-3-2{
+    background-color: #d1edf4;
+    color:#4a818f;
+}
+.Util-color-4{
+    background-color: #FFD3E2;
+}
+.Util-color-4-2{
+    color: #a96279;
+    background:#fedfe8;
+}
+.Util-color-5{
+    background-color: #C8F7DC;
+}
+.Util-color-5-2{
+    color: #4b966b;
+    background:#defceb;
+}
+
+.Util-color-6{
+    background-color: #aebcee;
+}
+.Util-color-6-2{
+    color: #485584;
+    background:#c5d0f9;
+}
+
+.Util-flex-row{
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+}
+.Util-flex-column{
+	display: flex;
+	flex-direction: column;
+}
+.Util-flex-row-sp{
+    display: flex;
+	flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.Util-heading1{
+  font-size: var(--h1-font-size);
+}
+.Util-heading3{
+   font-size:1.2rem;
+   text-transform: uppercase;
+   font-weight:700;
+   color:#2d7788;
+}
+.Util-para-a{
+    font-size:0.9rem;
+}
+.Util-para{
+	font-size: 0.9rem;
+}
+.Util-para-b{
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.right-para{
+          font-size: 0.9rem;
+        font-weight: bold;
+}
+.Util-green{
+	font-size: var(--smaller-font-size);
+    font-weight: var(--font-semi-bold);
+    color:#2d7788;
+}
+.Util-grey{
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    color:grey;
+}
+.Util-designation{
+   font-size: var(--h3-font-size);
+}
+.Util-small-bold{
+	font-size: var(--h3-font-size);
+	font-weight: var(--font-semi-bold);
+}
+.Util-circle{
+    background:black;
+    border-radius: 27px;
+    width:27px;
+    height:27px;
+    text-align:center;
+}
+.Util-circle a svg{
+    line-height:25px;
+    color:#fff;
+}
+.borders{
+    border:2px solid black;
+}
+
+.border-a{
+    border : 2px solid black;
+}
+.border-b{
+    border : 2px solid rgb(165, 47, 47);
+}
+.border-c{
+    border : 2px solid rgb(46, 204, 188);
+}
+.smallline{
+    width:3px;
+    height:100%;
+    background-color: black;
+}
+
+.searchform{
+    position: relative;
+}
+.searchicon{
+    position:absolute;
+    top:5px;
+    right:10px;
+}
+#navpart{
+    display: none;
+}
+
+
+.boxes .container{
+    width:32%;
+    padding:5px;
+    border-radius:22px;
+}
+.straightline{
+    display:inline-block;
+    width:100%;
+    background:#fff;
+    height:2px;
+}
+.small-box{
+    display:inline-block;
+    width:110px;
+    padding:3px 6px;
+    border-radius:15px;
+    box-shadow: 0 0 3px 2px black;
+    font-weight: bold;
+    text-align:center;
+    font-weight: bold;
+}
+a, a > svg{
+    text-decoration: none;
+    color:black;
+}
+
+
+
+@media (max-width:575px){
+    .Util-para-b{
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-right:1rem;
+    }
+}
+
+@media (max-width:400px){
+p{
+    font-size:0.8rem;
+}
+
+form{
+    display: none;
+}
+#navpart{
+    display: none;
+}
+.Util-color-grey{
+    font-size:0.6rem;
+}
+.bi-three-dots-vertical{
+    width:10px;
+    height:10px;
+}
+.Util-para-a{
+    font-size:0.7rem;
+}
+
+.Util-para{
+	font-size: 0.7rem;
+}
+.Util-para-b{
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-right:1rem;
+}
+.right-para{
+          font-size: 0.8rem;
+        font-weight: bold;
+}
+}
