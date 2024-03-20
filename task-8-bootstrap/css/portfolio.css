@@ -6,59 +6,6 @@ body{
     background-color: #b2c4e9;
 }
 
-:root{
-
-  --big-font-size: 2rem;
-  --h1-font-size: 2rem;
-  --h2-font-size: 1.25rem;
-  --h3-font-size: 1.125rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .70rem;
-
-  --font-medium:500;
-  --font-semi-bold:600;
-
---mb-0-25: .25rem;
---mb-0-5: .5rem;
---mb-0-75: .75rem;
---mb-1: 1rem;
---mb-1-5: 1.5rem;
---mb-2: 2rem;
---mb-2-5: 2.5rem;
---mb-3: 3rem;
-}
-
-.Util-mg-top-1{
-	margin-top: var(--mb-1);
-}
-.Util-mg-left-0-1{
-	margin-left: var(--mb-1);
-}
-.Util-mg-left-0-5{
-	margin-left: var(--mb-0-5);
-}
-.Util-mg-top-1{
-	margin-top: var(--mb-1);
-}
-.Util-mg-top-1-5{
-	margin-top: var(--mb-1-5);
-}
-.Util-mg-top-2{
-	margin-top: var(--mb-2);
-}
-.Util-mg-top-2-5{
-	margin-top: var(--mb-2-5);
-}
-.Util-mg-top-3{
-	margin-top: var(--mb-3);
-}
-.Util-mg-bottom-0-5{
-	margin-bottom: var(--mb-0-5);
-}
-.Util-mg-bottom-1{
-	margin-bottom: var(--mb-1);
-}
 .Util-badge{
     padding:4px 7px;
     text-align: center;
@@ -150,23 +97,7 @@ body{
           font-size: 0.9rem;
         font-weight: bold;
 }
-.Util-green{
-	font-size: var(--smaller-font-size);
-    font-weight: var(--font-semi-bold);
-    color:#2d7788;
-}
-.Util-grey{
-    font-size: var(--small-font-size);
-    font-weight: var(--font-semi-bold);
-    color:grey;
-}
-.Util-designation{
-   font-size: var(--h3-font-size);
-}
-.Util-small-bold{
-	font-size: var(--h3-font-size);
-	font-weight: var(--font-semi-bold);
-}
+
 .Util-circle{
     background:black;
     border-radius: 27px;
