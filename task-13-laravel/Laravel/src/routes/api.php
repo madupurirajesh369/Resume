@@ -34,4 +34,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/users', function ()  {      
+    return "Hello";  
+});  
+
+Route::resource('host/users','App\Http\Controllers\HostController');
+Route::resource('host/projects','App\Http\Controllers\ProjectController');
 
