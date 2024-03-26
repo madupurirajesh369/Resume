@@ -19,18 +19,23 @@ class ProjectTableSeeder extends Seeder
     public function run()
     {
         
-        $userIds = Host::pluck('id')->toArray();
+        $faker = Faker::create();
 
-        // Generate random projects
+        // Retrieve all hosts
+        $hosts = DB::table('hosts')->pluck('id')->toArray();
+
         foreach (range(1, 10) as $index) {
-            $project = new Project();
-            $project->title = 'Project ' . $index;
-            $project->status = rand(0, 1) ? 'ongoing' : 'completed';
-            
-            // Assign a random user ID from existing users
-            $project->user_id = $userIds[array_rand($userIds)]; // Assuming user_id is a foreign key in the projects table
+            $title = $faker->sentence;
+            $status = $faker->randomElement(['pending', 'in_progress', 'completed']);
+            $user_id = $faker->randomElement($hosts);
 
-            $project->save();
+            DB::table('projects')->insert([
+                'title' => $title,
+                'status' => $status,
+                'user_id' => $user_id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
         }
     }
 }

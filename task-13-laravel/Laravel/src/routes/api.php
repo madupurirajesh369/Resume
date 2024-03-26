@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\DataController;
+use App\Models\Host;
 
 /*
 |--------------------------------------------------------------------------
