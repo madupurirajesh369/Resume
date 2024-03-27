@@ -42,3 +42,14 @@ Route::get('/users', function ()  {
 Route::resource('host/users','App\Http\Controllers\HostController');
 Route::resource('host/projects','App\Http\Controllers\ProjectController');
 
+
+
+Route::get('/host/user/{user_id}/projects', function ($user_id) {
+    $user = Host::find($user_id);
+    $project1=[];
+    foreach ($user->projects as $project)
+    {
+        array_push($project1, $project);
+    }
+    return response()->json($project1);
+});

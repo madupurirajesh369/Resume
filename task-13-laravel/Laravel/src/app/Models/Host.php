@@ -10,4 +10,11 @@ class Host extends Model
     use HasFactory;
     protected $table="hosts";
     protected $fillable = ["name","email"];
+
+
+    public function projects()
+    {
+        return $this->hasMany('App\Models\Project', 'user_id');
+    }
+    
 }
