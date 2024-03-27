@@ -41,6 +41,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $project = new Project;
+        $project->user_id = $request->get('user_id');
         $project->title = $request->get('title');
         $project->status = $request->get('status');
         $project->save();
