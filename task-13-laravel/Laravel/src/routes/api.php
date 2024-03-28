@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\ProductController;
 use App\Models\Host;
 
 /*
@@ -53,3 +54,6 @@ Route::get('/host/user/{user_id}/projects', function ($user_id) {
     }
     return response()->json($project1);
 });
+
+
+Route::resource('/products', ProductController::class);

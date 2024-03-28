@@ -16,7 +16,7 @@ class HostTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+       /* $faker = Faker::create();
 
         foreach (range(1, 10) as $index) {
             DB::table('hosts')->insert([
@@ -25,6 +25,6 @@ class HostTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-        }
+        }*/
     }
 }
