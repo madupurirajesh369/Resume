@@ -14,8 +14,13 @@ class HostController extends Controller
      */
     public function index()
     {
-        $host=Host::all();
-        return response($host);
+       /* $host=Host::all();
+        return response($host); */
+
+        $hosts = Host::latest()->paginate(5);
+
+        return view('users.index',compact('hosts'))
+            ->with(request()->input('page'));
     }
 
     /**
@@ -30,6 +35,7 @@ class HostController extends Controller
         $user->email="rajesh@gmail.com";
         $user->save();
         return response()->json(["string created"]);*/
+        return view('users.create');
     }
 
     /**
@@ -40,11 +46,21 @@ class HostController extends Controller
      */
     public function store(Request $request)
     {
-        $host = new Host;
+       /* $host = new Host;
         $host->name = $request->get('name');
         $host->email = $request->get('email');
         $host->save();
-        return response()->json(['string created']);
+        return response()->json(['string created']);*/
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        Host::create($request->all());
+
+        return redirect()->route('users.index')
+                        ->with('success','User created successfully.');
     }
 
     /**
@@ -53,9 +69,9 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Host $host)
     {
-        //
+        return view('users.show',compact('host'));
     }
 
     /**
@@ -64,9 +80,9 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Host $host)
     {
-        //
+        return view('users.edit',compact('host'));
     }
 
     /**
@@ -76,9 +92,17 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Host $host)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        $host->update($request->all());
+
+        return redirect()->route('users.index')
+                        ->with('success','User updated successfully');
     }
 
     /**
@@ -87,8 +111,11 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Host $host)
     {
-        //
+        $host->delete();
+
+        return redirect()->route('users.index')
+                        ->with('success','USer deleted successfully');
     }
 }
