@@ -134,3 +134,8 @@
 
 
 @endsection
+
+
+@section('script')
+    <script src="{{ asset('scripts/view.js') }}"></script>
+@endsection

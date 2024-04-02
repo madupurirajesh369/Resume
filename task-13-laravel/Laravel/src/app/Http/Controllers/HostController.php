@@ -69,9 +69,10 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Host $user)
+    public function show($id)
     {
-        return view('users.show',compact('user'));
+        $user = Host::find($id);
+        return response($user);
     }
 
     /**
@@ -111,11 +112,13 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Host $host)
+    public function destroy($id)
     {
+        $host = Host::find($id);
+        if ($host === null) {
+            return response()->json(['error' => 'Not Found'], 404);
+        }
         $host->delete();
-
-        return redirect()->route('users.index')
-                        ->with('success','USer deleted successfully');
+        return to_route('users.index');
     }
 }
