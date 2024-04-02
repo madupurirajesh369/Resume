@@ -75,7 +75,7 @@
             <th>ID</th>
             <th>Title</th>
             <th>Status</th>
-            <th width="350px">Action</th>
+            <th  colspan="2">Action</th>
         </tr>
         @foreach ($project1 as $project1)
         <tr>
@@ -84,16 +84,58 @@
             <td>{{ $project1->status }}</td>
             <td>
                 <form action="{{ route('projects.destroy',$project1->id) }}" method="POST">
-                    <a class="btn btn-primary" href="{{ route('projects.edit',$project1->id) }}">Edit</a>
+                    
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
+            <td>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" onclick="edit('{{ $project1->id }}', '{{ $project1->title }}', '{{ $project1->status }}')">Edit</a>
+
+            </td>
         </tr>
         @endforeach
 
     
+        <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm" action="{{ route('projects.update', ':id') }}" method="POST">
+                        @csrf
+                        @method('PUT')
+    
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Title:</strong>
+                                    <input type="text" name="title" class="form-control" placeholder="Title" id="edit-title">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <strong>Status:</strong>
+                                    <textarea class="form-control" style="height:150px" name="status" id="edit-status" placeholder="Status"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+    
+                    </form>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
 
+
+ <script src="{{ asset('scripts/edit.js') }}"></script>
 
 @endsection
