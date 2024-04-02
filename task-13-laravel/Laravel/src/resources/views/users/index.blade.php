@@ -99,8 +99,8 @@
                             </form>
                         </td>
                         <td>
-                            <button class="btn btn-primary" type="submit" data-bs-toggle="modal"
-                                data-bs-target="#editModal{{ $user->id }}">Edit</button>
+                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" onclick="edit('{{ $user->id }}', '{{ $user->name }}', '{{ $user->email }}')">Edit</a>
+
                         </td>
                         <td>
                             <button class="btn btn-primary" type="submit"
@@ -118,38 +118,43 @@
     </div>
 
 
-    <div class="container">
-        @foreach ($hosts as $user)
-        <div class="modal fade" id="editModal{{ $user->id }}" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="ModalLabel">Edit User Details</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="{{ route('users.update', $user->id) }}">
-                            @csrf
-                            @method('put')
-                            <label for="name">Name <span class="red">*</span></label>
-                            <input type="text" name="name" class="form-control" id="name" value="{{ $user->name }}"
-                                autofocus required>
-                            </br>
-                            <label for=email>Email <span class="red">*</span></label>
-                            <input type="email" name="email" class="form-control" id="email" value="{{ $user->email }}"
-                                required>
-                            </br>
-                            <input type="submit" class="btn btn-success">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
+    <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <div class="modal-body">
+                <form id="editForm" action="{{ route('users.update', ':id') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+            
+                     <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Name:</strong>
+                                <input type="text" name="name"  class="form-control" placeholder="Name" id="edit-name">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Email:</strong>
+                                <input class="form-control" style="height:150px" name="email" placeholder="Detail" id="edit-email">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+            
+                </form>
+                
+            </div>
+          </div>
         </div>
-        @endforeach
-    </div>
+      </div>
+
 
     {{ $hosts->links() }}
 @endsection
@@ -157,4 +162,5 @@
 
 @section('script')
     <script src="{{ asset('scripts/view.js') }}"></script>
+    <script src="{{ asset('scripts/edit1.js') }}"></script>
 @endsection
