@@ -36,8 +36,6 @@
       </div>
     </div>
   </div>
-
-
   
     <div class="row">
         <div class="col-lg-12">
@@ -51,8 +49,6 @@
             </div>
         </div>
     </div>
-
-
 
     <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -79,12 +75,6 @@
         </div>
     @endif
 
-
-
-
-    
-
-
     <div class="table-responsive">
         <table class="table table-hover" id="userTable">
             <thead>
@@ -109,10 +99,8 @@
                             </form>
                         </td>
                         <td>
-                            <form action="{{ route('users.edit', $user->id) }}" method='GET'>
-                                @csrf
-                                <button class="btn btn-primary" type="submit">Edit</button>
-                            </form>
+                            <button class="btn btn-primary" type="submit" data-bs-toggle="modal"
+                                data-bs-target="#editModal{{ $user->id }}">Edit</button>
                         </td>
                         <td>
                             <button class="btn btn-primary" type="submit"
@@ -130,9 +118,40 @@
     </div>
 
 
+    <div class="container">
+        @foreach ($hosts as $user)
+        <div class="modal fade" id="editModal{{ $user->id }}" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="ModalLabel">Edit User Details</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="{{ route('users.update', $user->id) }}">
+                            @csrf
+                            @method('put')
+                            <label for="name">Name <span class="red">*</span></label>
+                            <input type="text" name="name" class="form-control" id="name" value="{{ $user->name }}"
+                                autofocus required>
+                            </br>
+                            <label for=email>Email <span class="red">*</span></label>
+                            <input type="email" name="email" class="form-control" id="email" value="{{ $user->email }}"
+                                required>
+                            </br>
+                            <input type="submit" class="btn btn-success">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
     {{ $hosts->links() }}
-
-
 @endsection
 
 

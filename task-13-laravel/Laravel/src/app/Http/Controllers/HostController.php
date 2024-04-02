@@ -81,9 +81,11 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Host $user)
+    public function edit($id)
     {
-        return view('users.edit',compact('user'));
+        $user = Host::find($id);
+
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -93,17 +95,17 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Host $user)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
         ]);
-
-        $user->update($request->all());
-
-        return redirect()->route('users.index')
-                        ->with('success','User updated successfully');
+        $user = Host::find($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->save();
+        return to_route('users.index');
     }
 
     /**
