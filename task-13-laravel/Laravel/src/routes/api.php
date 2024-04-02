@@ -42,6 +42,8 @@ Route::get('/users', function ()  {
 
 Route::resource('host/users','App\Http\Controllers\HostController');
 Route::resource('host/projects','App\Http\Controllers\ProjectController');
+Route::get('host/projects/{project}/edit', 'App\Http\Controllers\ProjectController@edit')->name('projects.edit');
+
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Host;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -16,6 +17,11 @@ class ProjectController extends Controller
     {
         $project=Project::all();
         return response($project);
+
+       /*$projects = Project::paginate(5);
+
+        return view('projects.index',compact('projects'))
+            ->with(request()->input('page'));*/
     }
 
     /**
@@ -30,6 +36,7 @@ class ProjectController extends Controller
         $project->status="ongoing";
         $project->save();
         return response()->json(["string created"]);*/
+        return view('projects.create');
     }
 
     /**
@@ -40,13 +47,25 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $project = new Project;
+       /* $project = new Project;
         $project->user_id = $request->get('user_id');
         $project->title = $request->get('title');
         $project->status = $request->get('status');
         $project->save();
-        return response()->json(['string created']);
+        return response()->json(['string created']);*/
+
+        $request->validate([
+            'user_id'=>'required',
+            'title' => 'required',
+            'status' => 'required',
+        ]);
+
+        Project::create($request->all());
+
+        return redirect()->route('projects.index')
+                        ->with('success','User created successfully.');
     }
+    
 
     /**
      * Display the specified resource.
@@ -54,9 +73,15 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_id)
     {
-        //
+        $user = Host::find($user_id);
+        $project1=[];
+        foreach ($user->projects as $project)
+        {
+            array_push($project1, $project);
+        }
+        return view('projects.index',compact('project1'));
     }
 
     /**
@@ -67,7 +92,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -79,8 +105,20 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'status' => 'required',
+        ]);
+
+        $project = Project::findOrFail($id);
+        $project->title = $request->title;
+        $project->status = $request->status;
+        $project->save();
+
+        return redirect()->route('projects.index')->with('success', 'Project updated successfully');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -88,8 +126,15 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($project1)
     {
-        //
+        $project = Project::find($project1); // Assuming Project is your model
+        if($project) {
+            $project->delete();
+            return redirect()->route('projects.index', ['user_id' => $project->host_id])->with('success', 'Project deleted successfully');
+        } else {
+            return redirect()->route('hosts.show', ['user_id' => $project->host_id])->with('error', 'Project not found');
+        }
+        
     }
 }

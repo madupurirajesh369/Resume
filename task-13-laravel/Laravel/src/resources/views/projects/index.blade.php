@@ -4,10 +4,13 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pull-left">
-                <h2>Users</h2>
+                <h2>Projects</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+                <a class="btn btn-success" href="{{ route('projects.create') }}"> Create</a>
+            </div>
+            <div class="pull-right" style="margin-right: 10px;">
+                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -21,30 +24,27 @@
     <table class="table table-bordered">
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Title</th>
+            <th>Status</th>
             <th width="350px">Action</th>
         </tr>
-        @foreach ($hosts as $host)
+        @foreach ($project1 as $project1)
         <tr>
-            <td>{{ $host->id }}</td>
-            <td>{{ $host->name }}</td>
-            <td>{{ $host->email }}</td>
+            <td>{{ $project1->id }}</td>
+            <td>{{ $project1->title }}</td>
+            <td>{{ $project1->status }}</td>
             <td>
-                <form action="{{ route('users.destroy',$host->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('users.show',$host->id) }}">Show</a>
-                    <a class="btn btn-primary" href="{{ route('users.edit',$host->id) }}">Edit</a>
+                <form action="{{ route('projects.destroy',$project1->id) }}" method="POST">
+                    <a class="btn btn-primary" href="{{ route('projects.edit',$project1->id) }}">Edit</a>
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
-                    <a class="btn btn-primary" href="http://localhost:8000/api/host/projects/{{$host->id}}">Projects</a>
                 </form>
             </td>
         </tr>
         @endforeach
 
-    </table>
-    {{ $hosts->links() }}
+    
 
 
 @endsection

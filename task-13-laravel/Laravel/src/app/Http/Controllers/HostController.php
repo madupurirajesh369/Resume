@@ -17,7 +17,7 @@ class HostController extends Controller
        /* $host=Host::all();
         return response($host); */
 
-        $hosts = Host::latest()->paginate(5);
+        $hosts = Host::paginate(5);
 
         return view('users.index',compact('hosts'))
             ->with(request()->input('page'));
@@ -69,9 +69,9 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Host $host)
+    public function show(Host $user)
     {
-        return view('users.show',compact('host'));
+        return view('users.show',compact('user'));
     }
 
     /**
@@ -80,9 +80,9 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Host $host)
+    public function edit(Host $user)
     {
-        return view('users.edit',compact('host'));
+        return view('users.edit',compact('user'));
     }
 
     /**
@@ -92,14 +92,14 @@ class HostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Host $host)
+    public function update(Request $request, Host $user)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required',
         ]);
 
-        $host->update($request->all());
+        $user->update($request->all());
 
         return redirect()->route('users.index')
                         ->with('success','User updated successfully');
