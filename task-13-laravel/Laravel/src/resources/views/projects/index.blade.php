@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pull-left">
-                <h2>Projects</h2>
+                <h2>Projects: {{$user->name}}</h2>
             </div>
             <div class="pull-right">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">

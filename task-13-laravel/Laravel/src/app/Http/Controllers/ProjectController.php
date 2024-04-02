@@ -81,7 +81,7 @@ class ProjectController extends Controller
         {
             array_push($project1, $project);
         }
-        return view('projects.index',compact('project1'));
+        return view('projects.index',compact('project1','user'));
     }
 
     /**
