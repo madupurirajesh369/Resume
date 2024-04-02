@@ -1,13 +1,53 @@
 @extends('users.layout')
 
 @section('content')
+
+<div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('users.store') }}" method="POST">
+                @csrf
+            
+                 <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Name:</strong>
+                            <input type="text" name="name" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <strong>Email:</strong>
+                            <textarea class="form-control" style="height:150px" name="email" placeholder="email"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
     <div class="row">
         <div class="col-lg-12">
             <div class="pull-left">
                 <h2>Users</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                    Create
+                  </button>
             </div>
         </div>
     </div>
@@ -41,6 +81,9 @@
                 </form>
             </td>
         </tr>
+
+
+
         @endforeach
 
     </table>
