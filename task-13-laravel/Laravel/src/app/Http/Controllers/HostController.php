@@ -85,7 +85,7 @@ class HostController extends Controller
     {
         $user = Host::find($id);
 
-        return view('user.edit', compact('user'));
+        return view('users.edit', compact('user'));
     }
 
     /**
