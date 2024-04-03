@@ -7,7 +7,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="createModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="createModalLabel">Create Project</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -30,7 +30,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Status:</strong>
-                            <textarea class="form-control" style="height:150px" name="status" placeholder=""></textarea>
+                            <input type="text" name="status" class="form-control" placeholder="status">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -71,38 +71,41 @@
     @endif
 
     <table class="table table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Status</th>
-            <th  colspan="2">Action</th>
-        </tr>
-        @foreach ($project1 as $project1)
-        <tr>
-            <td>{{ $project1->id }}</td>
-            <td>{{ $project1->title }}</td>
-            <td>{{ $project1->status }}</td>
-            <td>
-                <form action="{{ route('projects.destroy',$project1->id) }}" method="POST">
-                    
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-            <td>
-                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" onclick="edit('{{ $project1->id }}', '{{ $project1->title }}', '{{ $project1->status }}')">Edit</a>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th  colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($project1 as $project1)
+            <tr>
+                <td>{{ $project1->id }}</td>
+                <td>{{ $project1->title }}</td>
+                <td>{{ $project1->status }}</td>
+                <td>
+                    <form action="{{ route('projects.destroy',$project1->id) }}" method="POST">
+                        
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal" onclick="edit('{{ $project1->id }}', '{{ $project1->title }}', '{{ $project1->status }}')">Edit</a>
 
-            </td>
-        </tr>
-        @endforeach
-
-    
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
         <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
+                  <h1 class="modal-title fs-5" id="editModalLabel">Edit Project</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -120,7 +123,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Status:</strong>
-                                    <textarea class="form-control" style="height:150px" name="status" id="edit-status" placeholder="Status"></textarea>
+                                    <input type="text" name="status" class="form-control" placeholder="status" id="edit-status">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

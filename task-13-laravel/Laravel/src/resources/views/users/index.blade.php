@@ -6,7 +6,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="createModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="createModalLabel">Create User</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -23,7 +23,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Email:</strong>
-                            <textarea class="form-control" style="height:150px" name="email" placeholder="email"></textarea>
+                            <input type="text" name="email" class="form-control" placeholder="Email">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -103,12 +103,12 @@
 
                         </td>
                         <td>
-                            <button class="btn btn-primary" type="submit"
+                            <button class="btn btn-info" type="submit"
                                 onclick="return handleAction({{ $user->id }})" data-bs-toggle="modal"
                                 data-bs-target="#Modal">view</button>
                         </td>
                         <td>
-                            <a href="{{ route('projects.show', $user->id) }}" class="btn btn-primary"
+                            <a href="{{ route('projects.show', $user->id) }}" class="btn btn-success"
                                 target="_blank">Projects</a>
                         </td>
                     </tr>
@@ -120,40 +120,38 @@
 
     <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="editModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="editForm" action="{{ route('users.update', ':id') }}" method="POST">
-                    @csrf
-                    @method('PUT')
-            
-                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Name:</strong>
-                                <input type="text" name="name"  class="form-control" placeholder="Name" id="edit-name">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Edit User</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                        <form id="editForm" action="{{ route('users.update', ':id') }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Name:</strong>
+                                        <input type="text" name="name"  class="form-control" placeholder="Name" id="edit-name">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Email:</strong>
+                                        <input type="text" name="email"  class="form-control" placeholder="Email" id="edit-email">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <div class="form-group">
-                                <strong>Email:</strong>
-                                <input class="form-control" style="height:150px" name="email" placeholder="Detail" id="edit-email">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                          <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-            
-                </form>
-                
+                    
+                        </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
 
     {{ $hosts->links() }}
