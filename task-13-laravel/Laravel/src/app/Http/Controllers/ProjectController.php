@@ -80,12 +80,9 @@ class ProjectController extends Controller
     public function show($user_id)
     {
         $user = Host::find($user_id);
-        $project1=[];
-        foreach ($user->projects as $project)
-        {
-            array_push($project1, $project);
-        }
-        return view('projects.index',compact('project1','user'));
+        $projects = $user->projects()->paginate(5);
+
+        return view('projects.index',compact('projects','user'));
     }
 
     /**

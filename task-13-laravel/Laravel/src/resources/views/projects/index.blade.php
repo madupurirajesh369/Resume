@@ -80,7 +80,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($project1 as $project1)
+            @foreach ($projects as $project1)
             <tr>
                 <td>{{ $project1->id }}</td>
                 <td>{{ $project1->title }}</td>
@@ -138,7 +138,7 @@
             </div>
           </div>
 
-
+          {{ $projects->links() }}
  <script src="{{ asset('scripts/edit.js') }}"></script>
 
 @endsection
