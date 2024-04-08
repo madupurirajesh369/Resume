@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Host;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
@@ -19,7 +19,7 @@ class ProjectFactory extends Factory
     protected $model = Project::class;
     public function definition()
     {
-        $hosts = Host::pluck('id')->toArray();
+        $hosts = User::pluck('id')->toArray();
         return [
             'title' => fake()->sentence,
             'status' => fake()->randomElement(['ongoing', 'completed', 'pending', 'cancelled']),

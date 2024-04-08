@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Models\Host;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -78,7 +78,7 @@ class ProjectController extends Controller
      */
     public function show($user_id)
     {
-        $user = Host::find($user_id);
+        $user = User::find($user_id);
         $projects = $user->projects()->paginate(5);
 
         return view('projects.show',compact('projects','user'));
@@ -132,8 +132,6 @@ class ProjectController extends Controller
         if($project) {
             $project->delete();
             return redirect()->route('projects.show',$project->user_id)->with('success', 'Project deleted successfully');
-        } else {
-            return redirect()->route('hosts.show', ['user_id' => $project->host_id])->with('error', 'Project not found');
         }
         
     }

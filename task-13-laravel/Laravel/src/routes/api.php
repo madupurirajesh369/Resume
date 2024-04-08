@@ -9,7 +9,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\ProductController;
-use App\Models\Host;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +26,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth.basic')->group(function () {
-    Route::apiResource('books', BooksController::class);
-});
-
 Route::get('/', function () {
     return response()->json([
         'message' => 'This is a simple example of item returned by your APIs. Everyone can see it.'
@@ -40,7 +36,7 @@ Route::get('/users', function ()  {
     return "Hello";  
 });  
 
-Route::resource('host/users','App\Http\Controllers\HostController');
+Route::resource('host/users','App\Http\Controllers\UserController');
 Route::resource('host/projects','App\Http\Controllers\ProjectController');
 Route::get('host/projects/{project}/edit', 'App\Http\Controllers\ProjectController@edit')->name('projects.edit');
 
@@ -48,7 +44,7 @@ Route::get('host/projects/{project}/edit', 'App\Http\Controllers\ProjectControll
 
 
 Route::get('/host/user/{user_id}/projects', function ($user_id) {
-    $user = Host::find($user_id);
+    $user = User::find($user_id);
     $project1=[];
     foreach ($user->projects as $project)
     {
@@ -57,5 +53,3 @@ Route::get('/host/user/{user_id}/projects', function ($user_id) {
     return response()->json($project1);
 });
 
-
-Route::resource('/products', ProductController::class);

@@ -86,7 +86,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($hosts as $user)
+                @foreach ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
@@ -109,7 +109,7 @@
                         </td>
                         <td>
                             <a href="{{ route('projects.show', $user->id) }}" class="btn btn-success"
-                                target="_blank">Projects</a>
+                                >Projects</a>
                         </td>
                     </tr>
                 @endforeach
@@ -154,7 +154,7 @@
     </div>
 
 
-    {{ $hosts->links() }}
+    {{ $users->links() }}
 @endsection
 
 
