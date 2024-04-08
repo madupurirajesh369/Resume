@@ -18,8 +18,9 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
+        Project::factory(20)->create();
         
-        $faker = Faker::create();
+      /*  $faker = Faker::create();
 
         // Retrieve all hosts
         $hosts = DB::table('hosts')->pluck('id')->toArray();
@@ -36,6 +37,6 @@ class ProjectTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-        }
+        }*/
     }
 }

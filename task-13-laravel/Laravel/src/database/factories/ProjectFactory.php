@@ -4,8 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\DB;
-use Faker\Factory as Faker;
+use App\Models\Host;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Project>
@@ -20,26 +19,12 @@ class ProjectFactory extends Factory
     protected $model = Project::class;
     public function definition()
     {
-        
-        
-            $faker = Faker::create();
-
-            // Retrieve all hosts
-            $hosts = DB::table('hosts')->pluck('id')->toArray();
-    
-            foreach (range(1, 10) as $index) {
-                $title = $faker->sentence;
-                $status = $faker->randomElement(['pending', 'in_progress', 'completed']);
-                $user_id = $faker->randomElement($hosts);
-    
-                DB::table('projects')->insert([
-                    'title' => $title,
-                    'status' => $status,
-                    'user_id' => $user_id,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ]);
-            }
+        $hosts = Host::pluck('id')->toArray();
+        return [
+            'title' => fake()->sentence,
+            'status' => fake()->randomElement(['ongoing', 'completed', 'pending', 'cancelled']),
+            'user_id' => fake()->randomElement($hosts),
+        ];
        
     }
 }

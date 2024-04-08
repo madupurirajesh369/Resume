@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
+use App\Models\Host;
 
 class HostTableSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class HostTableSeeder extends Seeder
      */
     public function run()
     {
+        Host::factory(10)->create();
        /* $faker = Faker::create();
 
         foreach (range(1, 10) as $index) {
