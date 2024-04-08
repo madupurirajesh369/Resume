@@ -60,9 +60,13 @@ class ProjectController extends Controller
             'status' => 'required',
         ]);
 
-        Project::create($request->all());
+        $project = new Project;
+        $project->user_id = $request->get('user_id');
+        $project->title = $request->get('title');
+        $project->status = $request->get('status');
+        $project->save();
 
-        return redirect()->route('projects.index')
+        return redirect()->route('projects.show',$project->user_id)
                         ->with('success','User created successfully.');
     }
     
@@ -115,7 +119,7 @@ class ProjectController extends Controller
         $project->status = $request->status;
         $project->save();
 
-        return redirect()->route('projects.index')->with('success', 'Project updated successfully');
+        return redirect()->route('projects.show',$project->user_id)->with('success', 'Project updated successfully');
     }
 
 
@@ -131,7 +135,7 @@ class ProjectController extends Controller
         $project = Project::find($project1); // Assuming Project is your model
         if($project) {
             $project->delete();
-            return redirect()->route('projects.index', ['user_id' => $project->host_id])->with('success', 'Project deleted successfully');
+            return redirect()->route('projects.show',$project->user_id)->with('success', 'Project deleted successfully');
         } else {
             return redirect()->route('hosts.show', ['user_id' => $project->host_id])->with('error', 'Project not found');
         }
