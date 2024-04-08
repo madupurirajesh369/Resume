@@ -82,7 +82,7 @@ class ProjectController extends Controller
         $user = Host::find($user_id);
         $projects = $user->projects()->paginate(5);
 
-        return view('projects.index',compact('projects','user'));
+        return view('projects.show',compact('projects','user'));
     }
 
     /**
