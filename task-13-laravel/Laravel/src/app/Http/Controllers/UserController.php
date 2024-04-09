@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserController extends Controller
 {
@@ -23,14 +25,23 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
-
-        User::create($request->all());
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully.');
+        try {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+            ]);
+    
+            User::create($request->all());
+    
+            return redirect()->route('users.index')->with('success', 'User created successfully.');
+        } 
+        
+        catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+        } 
+        catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred while creating the user.');
+        }
     }
 
     public function show($id)
@@ -47,15 +58,33 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
-        $user = User::find($id);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->save();
-        return to_route('users.index');
+        try {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+            ]);
+    
+            $user = User::find($id);
+            if (!$user) {
+                throw new ModelNotFoundException("User not found.");
+            }
+    
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->save();
+    
+            return redirect()->route('users.index');
+        } 
+
+        catch (ModelNotFoundException $e) {
+            return redirect()->back()->with('error', 'User not found.');
+        }
+        catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator->errors())->withInput();
+        } 
+        catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred while updating the user.');
+        }
     }
 
     public function destroy($id)
