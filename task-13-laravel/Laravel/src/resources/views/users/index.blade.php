@@ -82,7 +82,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col" colspan="4">Action</th>
+                    <th scope="col" colspan="4" style="text-align: center">Action</th>
                 </tr>
             </thead>
             <tbody>

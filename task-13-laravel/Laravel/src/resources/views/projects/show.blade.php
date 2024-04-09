@@ -73,16 +73,14 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Title</th>
                 <th>Status</th>
-                <th  colspan="2">Action</th>
+                <th  colspan="2" style="text-align: center">Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($projects as $project1)
             <tr>
-                <td>{{ $project1->id }}</td>
                 <td>{{ $project1->title }}</td>
                 <td>{{ $project1->status }}</td>
                 <td>
