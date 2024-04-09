@@ -8,7 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\DataController;
-use App\Models\Host;
+use App\Http\Controllers\ProductController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,8 @@ use App\Models\Host;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::middleware('auth.basic')->group(function () {
-    Route::apiResource('books', BooksController::class);
 });
 
 Route::get('/', function () {
@@ -39,13 +36,15 @@ Route::get('/users', function ()  {
     return "Hello";  
 });  
 
-Route::resource('host/users','App\Http\Controllers\HostController');
+Route::resource('host/users','App\Http\Controllers\UserController');
 Route::resource('host/projects','App\Http\Controllers\ProjectController');
+Route::get('host/projects/{project}/edit', 'App\Http\Controllers\ProjectController@edit')->name('projects.edit');
+
 
 
 
 Route::get('/host/user/{user_id}/projects', function ($user_id) {
-    $user = Host::find($user_id);
+    $user = User::find($user_id);
     $project1=[];
     foreach ($user->projects as $project)
     {
@@ -53,3 +52,4 @@ Route::get('/host/user/{user_id}/projects', function ($user_id) {
     }
     return response()->json($project1);
 });
+*/
