@@ -22,7 +22,7 @@ use App\Models\User;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -52,4 +52,4 @@ Route::get('/host/user/{user_id}/projects', function ($user_id) {
     }
     return response()->json($project1);
 });
-
+*/
