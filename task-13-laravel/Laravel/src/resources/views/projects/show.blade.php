@@ -18,19 +18,19 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>userid:</strong>
-                            <input type="text" name="user_id" class="form-control" placeholder="id">
+                            <input type="text" name="user_id" class="form-control" placeholder="id"><br>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Title:</strong>
-                            <input type="text" name="title" class="form-control" placeholder="Name">
+                            <input type="text" name="title" class="form-control" placeholder="Name"><br>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Status:</strong>
-                            <input type="text" name="status" class="form-control" placeholder="status">
+                            <input type="text" name="status" class="form-control" placeholder="status"><br>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -52,17 +52,17 @@
             <div class="pull-left">
                 <h2>Projects: {{$user->name}}</h2>
             </div>
-            <div class="pull-right">
+            <div class="col text-end">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
-                    Create
+                    Create Project
                   </button>
-                  <div class="pull-right" style="margin-right: 10px;float: right;">
-                    <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
+                  <div class="pull-right" style="margin-right: 10px;float: right; padding-left:20px">
+                    <a class="btn btn-success" href="{{ route('users.index') }}"> Back</a>
                 </div>
             </div>
             
         </div>
-    </div>
+    </div><br>
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -117,13 +117,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Title:</strong>
-                                    <input type="text" name="title" class="form-control" placeholder="Title" id="edit-title">
+                                    <input type="text" name="title" class="form-control" placeholder="Title" id="edit-title"><br>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Status:</strong>
-                                    <input type="text" name="status" class="form-control" placeholder="status" id="edit-status">
+                                    <input type="text" name="status" class="form-control" placeholder="status" id="edit-status"><br>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -17,13 +17,13 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Name:</strong>
-                            <input type="text" name="name" class="form-control" placeholder="Name">
+                            <input type="text" name="name" class="form-control" placeholder="Name"><br>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>Email:</strong>
-                            <input type="text" name="email" class="form-control" placeholder="Email">
+                            <input type="text" name="email" class="form-control" placeholder="Email"><br>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -42,13 +42,13 @@
             <div class="pull-left">
                 <h2>Users</h2>
             </div>
-            <div class="pull-right">
+            <div class="col text-end">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
-                    Create
+                    Create user
                   </button>
             </div>
         </div>
-    </div>
+    </div><br>
 
     <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -76,7 +76,7 @@
     @endif
 
     <div class="table-responsive">
-        <table class="table table-hover" id="userTable">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -133,13 +133,13 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Name:</strong>
-                                        <input type="text" name="name"  class="form-control" placeholder="Name" id="edit-name">
+                                        <input type="text" name="name"  class="form-control" placeholder="Name" id="edit-name"><br>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Email:</strong>
-                                        <input type="text" name="email"  class="form-control" placeholder="Email" id="edit-email">
+                                        <input type="text" name="email"  class="form-control" placeholder="Email" id="edit-email"><br>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
