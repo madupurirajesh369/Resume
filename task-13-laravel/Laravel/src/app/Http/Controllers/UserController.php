@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -27,8 +28,8 @@ class UserController extends Controller
     {
         try {
             $request->validate([
-                'name' => 'required',
-                'email' => 'required',
+                'name' => 'required|string',
+                'email' => 'required|string',
             ]);
     
             User::create($request->all());
@@ -60,8 +61,8 @@ class UserController extends Controller
     {
         try {
             $request->validate([
-                'name' => 'required',
-                'email' => 'required',
+                'name' => 'required|string',
+                'email' => 'required|string',
             ]);
     
             $user = User::find($id);

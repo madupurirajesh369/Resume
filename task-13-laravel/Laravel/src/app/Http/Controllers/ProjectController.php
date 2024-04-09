@@ -24,9 +24,9 @@ class ProjectController extends Controller
     {
         try {
             $request->validate([
-                'user_id' => 'required',
-                'title' => 'required',
-                'status' => 'required',
+                'user_id' => 'required|exists:users,id',
+                'title' => 'required|string',
+                'status' => 'required|string',
             ]);
     
             $project = new Project;
@@ -66,8 +66,8 @@ class ProjectController extends Controller
     {
         try {
             $request->validate([
-                'title' => 'required',
-                'status' => 'required',
+                'title' => 'required|string',
+                'status' => 'required|string',
             ]);
     
             $project = Project::findOrFail($id);
