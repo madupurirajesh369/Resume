@@ -18,11 +18,15 @@
   "author": "appfoster",
   "license": "ISC",
   "dependencies": {
+    "chance": "^1.1.11",
     "cors": "^2.8.5",
-    "ejs": "^3.1.8",
-    "express": "^4.17.1",
-    "mysql2": "^2.0.2",
+    "express": "^4.19.2",
+    "faker": "^6.6.6",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
     "sequelize": "^6.21.0"
+  },
+  "devDependencies": {
+    "ejs": "^3.1.10"
   }
 }

@@ -36,7 +36,26 @@ app.get("/", (req, res) => {
   res.render('pages/index');
 });
 
+app.get("/user", (req, res) => {
+  const users = [];
+  res.render("pages/user", { users: users });
+});
+
+app.get("/create-user", (req, res) => {
+  res.render("pages/create-user");
+});
+
+
+
+
+
 require("./app/routes/tutorial.routes")(app);
+
+const router = require('./app/routes/user.routes.js');
+app.use('/api/users', router);
+
+require("./app/routes/project.routes")(app);
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 3000;
